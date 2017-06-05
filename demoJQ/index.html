@@ -1,0 +1,41 @@
+<html>
+<head>
+<script type="application/javascript">
+	var customer = {};
+
+
+	window.onload = function() {
+		document.getElementById("firstName").onblur = function() {
+			customer.firstName = this.value;
+		};
+		document.getElementById("lastName").onblur = function() {
+			customer.lastName = this.value;
+		};
+		document.getElementById("phoneNumber").onblur = function() {
+			customer.phoneNumber = this.value;
+		};
+		document.getElementById("email").onblur = function() {
+			customer.email = this.value;
+		};
+
+		document.getElementById("btnSubmit").onclick = function() {
+			console.log(customer);
+		};
+	};
+</script>
+</head>
+
+
+<body>
+
+<form id="frmCustomerRegistration" onsubmit="return false;">
+	<h2>Customer Registration</h2>
+	First Name; <input id="firstName" name="firstName"/><br/>
+	Last Name: <input id="lastName" name="lastName"/><br/>
+	Phone Number: <input id="phoneNumber" name="phoneNumber"/><br/>
+	Email: <input id="email" name="email"/><br/>
+	<button id="btnSubmit">Register Customer</button>
+</form>
+
+</body>
+</html>

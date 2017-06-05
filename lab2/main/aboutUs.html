@@ -1,0 +1,87 @@
+<html>
+<head>
+	<!-- Load CDN version of jQuery for expediency 
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	-->
+
+	<!-- Load node_modules version of jQuery -->
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+	<!-- Load CDN version of Angular Core 
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	-->
+
+	<!-- Load node_modules version of Angular Core 	-->
+	<script src="../node_modules/angular/angular.min.js"></script>
+
+
+	<script type="application/javascript" src="mainModule.js"></script>
+
+</head>
+<body ng-app="mainModule" >
+
+<form onsubmit="return false;" ng-controller="aboutUsController">
+	<h2>Company Registration</h2>
+	Company Name: <input ng-model="companyName"/><br/>
+	Street Address: <input ng-model="address"/><br/>
+	City: <input ng-model="city"/><br/>
+	State: <input ng-model="state"/><br/>
+	Zip/Postal Code: <input ng-model="postalCode"/><br/>
+
+
+	Phone Number: <input ng-model="phoneNumber"/><br/>
+	Today's Date: <input ng-model="date"/><br/>
+	<button id="btnSubmit">Register Company</button>
+
+<div id="divValues">
+{{companyName}}<br/>
+<span ng-bind="companyName"></span>
+
+{{address}}<br/>
+{{city}}<br/>
+{{state}}<br/>
+{{postalCode}}<br/>
+{{phoneNumber}}<br/>
+{{date}}<br/>
+{{date | date:"fullDate"}}<br/>
+{{date | date:"longDate"}}<br/>
+{{date | date:"shortDate"}}<br/>
+{{date | date:"mediumDate"}}<br/>
+</div>
+
+</form>
+
+<form onsubmit="return false;" ng-controller="aboutUsController">
+	<h2>Company Registration</h2>
+	Company Name: <input ng-model="companyName"/><br/>
+	Street Address: <input ng-model="address"/><br/>
+	City: <input ng-model="city"/><br/>
+	State: <input ng-model="state"/><br/>
+	Zip/Postal Code: <input ng-model="postalCode"/><br/>
+
+
+	Phone Number: <input ng-model="phoneNumber"/><br/>
+	Today's Date: <input ng-model="date"/><br/>
+	<button id="btnSubmit">Register Company</button>
+
+<div id="divValues">
+{{companyName}}<br/>
+<span ng-bind="companyName"></span>
+
+{{address}}<br/>
+{{city}}<br/>
+{{state}}<br/>
+{{postalCode}}<br/>
+{{phoneNumber}}<br/>
+{{date}}<br/>
+{{date | date:"fullDate"}}<br/>
+{{date | date:"longDate"}}<br/>
+{{date | date:"shortDate"}}<br/>
+{{date | date:"mediumDate"}}<br/>
+</div>
+
+</form>
+
+
+</body>
+</html>

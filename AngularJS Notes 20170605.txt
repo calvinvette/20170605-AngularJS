@@ -1,0 +1,219 @@
+
+
+
+Calvin Vette, JCEA, RHCE, CSM, CIW
+calvin.vette@triveratech.com
++1 248-894-4913 (text)
+
+
+
+
+
+First Name
+Title/Function
+Project/Department
+Experience (esp w/ Web dev)
+Why AngularJS (1.x)
+Expectations
+
+
+
+Install:
+
+NodeJS: (Download 6.x version - also installs NPM)
+https://nodejs.org/en/
+
+WebStorm: (Optional)
+https://www.jetbrains.com/webstorm/download/#section=windows
+
+(WebStorm needs JDK: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
+
+Git for Windows:
+https://git-scm.com/download/win
+
+7-zip (or other 3rd-party unzipper for our lab files)
+http://www.7-zip.org/
+
+
+MongoDB:
+https://www.mongodb.org/download-center
+
+
+
+10-6pm Eastern
+
+10-1:30 (with 10-15 minute break halfway in ~11:45)
+
+Lunch 1:30-2:30
+
+2:30-6:00 (with 10-15 minute break halfway in ~4ish)
+
+
+
+
+
+
+AngularJS typically means Angular 1.x
+	BUT - you can develop in TypeScript on Angular 1.x framework
+
+Angular (2 and above) *should* mean Angular 2 and above
+	BUT - you can develop in JavaScript in the Angular 2 and above framework
+		(BUT no one actually does)
+
+Angular is now "version-number-less"
+	BUT there's still a lot of confusion because 1.x is still very prevalent
+	ALSO Angular 2.x skipped Angular 3 to go to Angular 4
+	Current version is Angular 4.1
+
+"SemVer" versioning from 2.0 on (September 2016)
+	2.1.5 should be compatible with any 2.x series
+	Alpha, Beta - standard definitions - code in flux/APIs may change
+	Release Candidate - only bug fixes allowed
+	
+	Major.Minor.Patch -
+		Minor release every ~ month
+		Patch release every ~ week
+		Major versions every 6 months
+	Angular 2 (Sept 2016) -> 2.1 (October 2016)
+	Angular 4 (skip ng3) March 2017
+	Angular 5 - Sept 2017
+
+http://todomvc.com/
+
+https://angularjs.org/
+https://angular.io/
+
+
+NodeJS-based tooling
+	Yeoman (yo, bower, grunt|gulp)
+	http://yeoman.io/
+
+
+
+	NPM - Node Package Manager; installs libraries (and their dependencies) from GitHub/npmjs.org - like CPAN/CRAN/Maven Repo/Pip/NuGET
+		Dependencies listed in "package.json", originally only listed development dependencies, now does dev and browser JS dependencies.
+		Replaces "bower", which only downloads browser-side JS depenencies
+
+		Packaging systems like systemJS and WebPack now use NPM to download both dev & browser-side librarie; separate out browser-side
+			during the packaging cycle.
+
+	Gulp - Stream-based build system (like "Makefile", or Maven pom.xml build directives) (uses Gulpfile.js), original was Grunt (Gruntfile.js)
+		Example build steps:
+
+		Lint check the JavaScript or TypeScript
+		Compile TypeScript into JavaScript if necessary (transpile)
+		Lint check CSS files
+		Compile SASS or LESS into CSS files
+		minify JS (pseudo-compression, also called "uglify" or "obfuscate")
+		minify CSS (pseudo-compression, also called "uglify" or "obfuscate")
+		minify images (reduce image quality for better compression)
+		produce map files to map minified JS to original JS (and another map to go from JS to TS)
+		produce map files to map minified CSS to original CSS (and another map to go from CSS to Sass/Less)
+
+NodeJS-based development servers
+	http-server - lightweight static server
+	browser-sync - simple dynamic web server, enables "Live Reload", not for production use
+	ExpressJS - production-grade server, also very valuable in Mock servers for front-side development and TDD
+
+
+AngularJS
+	Provides MVC framework
+		Supports any variant MVVM, MVP, generically called MV*
+	Dynamic Model-View bidirectional binding
+		Keeps model in sync with view
+	Services with Dependency Injection
+		(Supports TDD)
+	i18n/l10n (although somewhat weak compared to JEE or .NET)
+		i18n = internationalization
+		l10n = localization
+	Form Validation
+	Built-in AJAX ($http (on top of jQuery))
+	Directives
+		HTML-like add-ons that support JS code
+
+	<input ng-model="customer.firstName"/><br/>
+	<ng-view></ng-view>
+	<cv-datagrid source="sales2015"></cv-datagrid>
+
+	$scope - Per-component instance 
+
+	Many 3rd-party libraries to add on and/or integrate with other systems
+		Bootstrap (Responsive Web Design / RWD)
+		d3 / nvD3
+
+
+	Angular 1.0 - 1.2 - IE8 compatible
+		jQuery 1.x is also IE8 compatible
+	Angular 1.3 - drop explicit IE8 compatibility
+		jQuery 2.x also drops IE8 compatibility
+
+		IE8 has no JITC JS engine, so some things are not possible to reasonable backfill (monkey patch/polyfill)
+
+
+https://github.com/rapPayne/AngularJSLabs/	
+
+
+
+Open the debugger with F12 or Control-Shift-I (or Command-shift-I on Mac).
+	Should work with most browsers, but use Chrome for this class.
+
+In a command prompt, install the baseline tools:
+
+npm install -g yo grunt gulp grunt-cli gulp-cli bower
+
+
+CD to your project directory (mine is C:\workspace\lab2\, which has a main subdirectory and the aboutUs.html and mainModule.js files in it)
+
+Then install angular with either bower or npm:
+
+	bower install angular
+	npm install angular
+
+I'll be using npm exclusively.
+
+To save your choices of libraries, use a bower.json (bower)  or package.json (NPM)
+
+To "init" the package.json file, use:
+
+	npm init
+
+	(You can either keep hitting "Enter" for all the prompts or customize it a bit.)
+
+
+Lunch + Lab until 3:30
+1 hr for lunch
+45 minutes for Lab 1 + 2
+
+Old Solutions:
+
+	https://github.com/calvinvette/20170213-AngularJS
+
+New Solutions (uploaded as we go):
+	https://github.com/calvinvette/20170605-AngularJS
+
+
+
+
+
+
+
+
+
+
+
+ 	
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
