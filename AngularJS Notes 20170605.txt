@@ -185,15 +185,24 @@ Lunch + Lab until 3:30
 1 hr for lunch
 45 minutes for Lab 1 + 2
 
+
+Original Lab Website
+
+	https://github.com/rapPayne/AngularJSLabs/
+
 Old Solutions:
 
 	https://github.com/calvinvette/20170213-AngularJS
 
 New Solutions (uploaded as we go):
+
 	https://github.com/calvinvette/20170605-AngularJS
 
 
+The first two labs don't require the full site, but for the third lab you'll need to do a "git clone" of Rap's repo for this site:
 
+	cd \workspace
+	git clone https://github.com/rapPayne/AngularJSLabs.git
 
 
 

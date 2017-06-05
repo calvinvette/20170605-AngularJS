@@ -6,4 +6,11 @@ app.controller("aboutUsController", function($scope) {
 
 
 	$scope.date = new Date();
+
+
+	$scope.register = function() {
+		console.log("Registration not implemented...");
+		console.log($scope.companyName);
+		// debugger;
+	}
 });

@@ -17,6 +17,21 @@
 
 	<script type="application/javascript" src="mainModule.js"></script>
 
+	<style>
+		.first-state {
+			background-color: red;
+			color: white;
+		}
+		.even-state {
+			background-color: steelblue;
+			color: white;
+		}
+		.odd-state       {
+			background-color: white;
+			color: steelblue;
+		}
+
+	</style>
 </head>
 <body ng-app="mainModule" >
 
@@ -42,45 +57,38 @@
 {{state}}<br/>
 {{postalCode}}<br/>
 {{phoneNumber}}<br/>
-{{date}}<br/>
-{{date | date:"fullDate"}}<br/>
-{{date | date:"longDate"}}<br/>
-{{date | date:"shortDate"}}<br/>
 {{date | date:"mediumDate"}}<br/>
 </div>
 
+	All States in $scope.states
+	<ul>
+		<li ng-repeat="state in states">{{state}}</li>
+	</ul>
+
+	<table border="1">
+		<tr>
+			<th>#</th><th>State Name</th><th>first</th><th>middle</th><th>last</th><th>even</th><th>odd</th>
+		</tr>
+		<tr ng-repeat="state in states" ng-class="{'even-state':$even, 'odd-state':$odd, 'first-state':$first}">
+			<td>{{$index + 1}}</td><td>{{state}}</td><td>{{$first}}</td><td>{{$middle}}</td><td>{{$last}}</td><td>{{$even}}</td><td>{{$odd}}</td>
+		</tr>
+	</table>
+
 </form>
 
-<form onsubmit="return false;" ng-controller="aboutUsController">
-	<h2>Company Registration</h2>
-	Company Name: <input ng-model="companyName"/><br/>
-	Street Address: <input ng-model="address"/><br/>
-	City: <input ng-model="city"/><br/>
-	State: <input ng-model="state"/><br/>
-	Zip/Postal Code: <input ng-model="postalCode"/><br/>
 
-
-	Phone Number: <input ng-model="phoneNumber"/><br/>
-	Today's Date: <input ng-model="date"/><br/>
-	<button id="btnSubmit" ng-click="register()">Register Company</button>
-
-<div id="divValues">
-{{companyName}}<br/>
-<span ng-bind="companyName"></span>
-
-{{address}}<br/>
-{{city}}<br/>
-{{state}}<br/>
-{{postalCode}}<br/>
-{{phoneNumber}}<br/>
-{{date}}<br/>
-{{date | date:"fullDate"}}<br/>
-{{date | date:"longDate"}}<br/>
-{{date | date:"shortDate"}}<br/>
-{{date | date:"mediumDate"}}<br/>
+<div ng-controller="mainProductContrroller">
+	<div ng-repeat="product in topProducts" class="item text-center"
+		 ng-class="{'active':$first}">
+		<a ng-attr-href="product/index.html#/{{product.productID}}">
+			<img
+					ng-attr-src="assets/img/productImages/{{product.productID}}.jpg"
+					class="center-block"
+					ng-attr-alt="{{product.productName}}">{{product.productName}}</a>
+	</div>
 </div>
 
-</form>
+
 
 
 </body>
