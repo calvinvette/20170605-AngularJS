@@ -39,7 +39,7 @@
                 <th></th>
             </tr>
             <!-- The ng-dblclick sets an editingRow variable to the current index value -->
-            <tr  ng-repeat="cartItem in cart track by $index" ng-dblclick="editingRow = $index">
+            <tr ng-repeat="cartItem in cart track by $index" ng-dblclick="editingRow = $index">
                 <td>{{cartItem.product.productID}}</td>
                 <td>{{cartItem.product.productName}}</td>
                 <td>{{cartItem.product.categoryID}}</td>
