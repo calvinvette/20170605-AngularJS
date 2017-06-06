@@ -199,7 +199,8 @@ New Solutions (uploaded as we go):
 	https://github.com/calvinvette/20170605-AngularJS
 
 
-The first two labs don't require the full site, but for the third lab you'll need to do a "git clone" of Rap's repo for this site:
+The first two labs don't require the full site, but for the third lab you'll need to do a 
+"git clone" of Rap's repo for this site:
 
 	cd \workspace
 	git clone https://github.com/rapPayne/AngularJSLabs.git

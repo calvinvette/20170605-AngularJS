@@ -1,0 +1,92 @@
+<html>
+<head>
+	<!-- Load CDN version of jQuery for expediency 
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	-->
+
+	<!-- Load node_modules version of jQuery -->
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+	<!-- Load CDN version of Angular Core 
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	-->
+
+	<!-- Load node_modules version of Angular Core 	-->
+	<script src="../node_modules/angular/angular.min.js"></script>
+
+
+	<script type="application/javascript" src="mainModule.js"></script>
+	<script type="application/javascript" src="aboutUsController.js"></script>
+
+	<style>
+		.first-state {
+			background-color: red;
+			color: white;
+		}
+		.even-state {
+			background-color: steelblue;
+			color: white;
+		}
+		.odd-state       {
+			background-color: white;
+			color: steelblue;
+		}
+
+	</style>
+</head>
+<body ng-app="mainModule" >
+
+<div ng-controller="aboutUsController">
+	Debug? <input type="checkbox" ng-model="debug"><br/>
+	<form onsubmit="return false;">
+		<h2>Company Registration</h2>
+		Company Name: <input ng-model="companyName"/><br/>
+		Street Address: <input ng-model="address"/><br/>
+		City: <input ng-model="city"/><br/>
+		State: <input ng-model="state"/><br/>
+		Zip/Postal Code: <input ng-model="postalCode"/><br/>
+
+
+		Phone Number: <input ng-model="phoneNumber"/><br/>
+		Today's Date: <input ng-model="date"/><br/>
+		<button id="btnSubmit" ng-click="register()">Register Company</button>
+
+		<div id="divValues" ng-show="debug">
+			{{companyName}}<br/>
+			<span ng-bind="companyName"></span>
+
+			{{address}}<br/>
+			{{city}}<br/>
+			{{state}}<br/>
+			{{postalCode}}<br/>
+			{{phoneNumber}}<br/>
+			{{date | date:"mediumDate"}}<br/>
+		</div>
+
+	</form>
+
+	All States in $scope.states
+	<ul ng-show="debug">
+		<li ng-repeat="state in states">{{state}}</li>
+	</ul>
+
+	<table border="1" ng-hide="debug">
+		<tr>
+			<th>#</th><th>State Name</th><th>first</th><th>middle</th><th>last</th><th>even</th><th>odd</th>
+		</tr>
+		<tr ng-repeat="state in states" ng-class="{'even-state':$even, 'odd-state':$odd, 'first-state':$first}">
+			<td>{{$index + 1}}</td><td>{{state}}</td><td>{{$first}}</td><td>{{$middle}}</td><td>{{$last}}</td><td>{{$even}}</td><td>{{$odd}}</td>
+		</tr>
+	</table>
+
+	<section>
+		<img ng-attr-src="https://maps.googleapis.com/maps/api/staticmap?markers={{address}} {{ city}} {{ state }} {{ postalCode}}&size=600x600&maptype=hybrid"/>
+		<!--
+			We're not using the company object in our code above.
+		<img ng-attr-src="https://maps.googleapis.com/maps/api/staticmap?markers={{company.address}} {{ company.city}} {{ company.state }} {{ company.postalCode}}&size=600x600&maptype=hybrid"/>
+		-->
+	</section>
+</div>
+
+</body>
+</html>
