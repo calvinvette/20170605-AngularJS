@@ -1,0 +1,54 @@
+<html>
+<head>
+	<!-- Load CDN version of jQuery for expediency 
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	-->
+
+	<!-- Load node_modules version of jQuery -->
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+	<!-- Load CDN version of Angular Core 
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	-->
+
+	<!-- Load node_modules version of Angular Core 	-->
+	<script src="../node_modules/angular/angular.min.js"></script>
+
+
+	<script type="application/javascript" src="mainModule.js"></script>
+
+	<style>
+		.first-state {
+			background-color: red;
+			color: white;
+		}
+		.even-state {
+			background-color: steelblue;
+			color: white;
+		}
+		.odd-state       {
+			background-color: white;
+			color: steelblue;
+		}
+
+	</style>
+</head>
+<body ng-app="mainModule" >
+
+
+<div ng-controller="mainProductContrroller">
+	<div ng-repeat="product in topProducts" class="item text-center"
+		 ng-class="{'active':$first}">
+		<a ng-attr-href="product/index.html#/{{product.productID}}">
+			<img
+					ng-attr-src="assets/img/productImages/{{product.productID}}.jpg"
+					class="center-block"
+					ng-attr-alt="{{product.productName}}">{{product.productName}}</a>
+	</div>
+</div>
+
+
+
+
+</body>
+</html>

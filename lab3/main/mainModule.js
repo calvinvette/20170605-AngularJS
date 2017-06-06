@@ -1,6 +1,8 @@
 var app = angular.module("mainModule", [ ]);
 
 app.controller("aboutUsController", function($scope) {
+    $scope.debug = false;
+
 	$scope.states = [
 		"Florida",
 		"Michigan",
@@ -13,6 +15,11 @@ app.controller("aboutUsController", function($scope) {
 
 	console.log("about us controller loaded...");
 	$scope.companyName = "Foo Corp";
+    $scope.address = "1234 Main St.";
+    $scope.city = "Schenectady";
+    $scope.state = "NY";
+    $scope.postalCode = "12345";
+    $scope.phoneNumber = "212-555-1212";
 
 	$scope.date = new Date();
 
