@@ -38,13 +38,17 @@
                 <th>Extended Price</th>
                 <th></th>
             </tr>
+            <!-- The ng-dblclick sets an editingRow variable to the current index value -->
             <tr  ng-repeat="cartItem in cart track by $index" ng-dblclick="editingRow = $index">
                 <td>{{cartItem.product.productID}}</td>
                 <td>{{cartItem.product.productName}}</td>
                 <td>{{cartItem.product.categoryID}}</td>
                 <td>{{cartItem.product.quantityPerUnit}}</td>
                 <td>{{cartItem.product.unitsInStock}}</td>
+                <!-- Pipe through the currency filter -->
                 <td>{{cartItem.product.unitPrice | currency:"USD$ "}}</td>
+                <!-- If the editingRow value is equal to the current index (set above), we'll show the input, otherwise the expression  -->
+                <!-- On blur, we'll set the editingRow to -1 (thereby disabling edit mode on any row) and call the stopEditing function which recalculates the cart total.  -->
                 <td><input ng-model="cartItem.quantity" ng-show="$index == editingRow" ng-blur="editingRow = -1; stopEditing($index);"/>
                     <span ng-hide="$index == editingRow">{{cartItem.quantity}}</span>
                 </td>

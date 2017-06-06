@@ -67,7 +67,7 @@
         //     $scope.cartTotal = getCartTotal($scope.cart);
         // });
 
-        // $watchCollection looks at the items in the cart.
+        // $watchCollection looks at the items in the cart (but not their properties).
         $scope.$watchCollection('cart', function() {
             $scope.cartTotal = getCartTotal($scope.cart);
         });
@@ -75,6 +75,8 @@
         $scope.stopEditing = function(idx) {
             // Why does this fail to disable the editingRow value and disable editing?
             $scope.editingRow = -1;
+            // Recalculate cart total - the watchCollection won't see value changes for properties of items in the cart,
+            // just changes to the whole items in the cart
             $scope.cartTotal = getCartTotal($scope.cart);
         }
 
