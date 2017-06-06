@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Load CDN version of jQuery for expediency
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    -->
+
+    <!-- Load node_modules version of jQuery -->
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+
+    <!-- Load CDN version of Angular Core
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    -->
+
+    <!-- Load node_modules version of Angular Core 	-->
+    <script src="../../node_modules/angular/angular.min.js"></script>
+
+
+    <script type="application/javascript" src="../mainModule.js"></script>
+    <script type="application/javascript" src="orderingModule.js"></script>
+    <script type="application/javascript" src="checkoutController.js"></script>
+</head>
+<body ng-app="orderingModule">
+
+<div ng-controller="checkoutController">
+    <table>
+        <thead></thead>
+        <tbody>
+            <tr>
+
+                <th>productID</th>
+                <th>productName</th>
+                <th>categoryID</th>
+                <th>quantityPerUnit</th>
+                <th>unitsInStock</th>
+                <th>unitPrice</th>
+                <th>quantity</th>
+                <th>Extended Price</th>
+                <th></th>
+            </tr>
+            <tr  ng-repeat="cartItem in cart track by $index" ng-dblclick="editingRow = $index">
+                <td>{{cartItem.product.productID}}</td>
+                <td>{{cartItem.product.productName}}</td>
+                <td>{{cartItem.product.categoryID}}</td>
+                <td>{{cartItem.product.quantityPerUnit}}</td>
+                <td>{{cartItem.product.unitsInStock}}</td>
+                <td>{{cartItem.product.unitPrice | currency:"USD$ "}}</td>
+                <td><input ng-model="cartItem.quantity" ng-show="$index == editingRow" ng-blur="editingRow = -1; stopEditing($index);"/>
+                    <span ng-hide="$index == editingRow">{{cartItem.quantity}}</span>
+                </td>
+                <td>{{cartItem.quantity * cartItem.product.unitPrice | currency:"USD$ "}}</td>
+                <td><button ng-click="removeFromCart(cartItem.product)">Remove</button></td>
+            </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+    <span>Total: {{cartTotal | currency:"USD$ "}}</span>
+    <br/>
+    <button ng-click="processOrder()">Checkout</button>
+</div>
+</body>
+</html>
