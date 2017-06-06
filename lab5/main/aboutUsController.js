@@ -2,9 +2,9 @@
 
     var app = angular.module("mainModule");
     app.controller("aboutUsController", controller);
-    controller.$inject = ['$scope'];
+    controller.$inject = ['$scope', '$timeout'];
 
-    function controller ($scope) {
+    function controller ($scope, $timeout) {
         $scope.debug = false;
 
         $scope.states = [
@@ -32,7 +32,14 @@
             console.log($scope.companyName);
             // Can't use apply or digest inside an event handler - have to defer it
             // $scope.apply();
-            // $scope.$digest();
+            // $scope.hideMap = true;
+            // $timeout(function() {
+            //     // $scope.$apply();
+            //     // $scope.$digest();
+            //     $scope.$applyAsync();
+            //     $scope.hideMap = false;
+            // }, 2000);
+
             // debugger;
         }
     };

@@ -38,7 +38,7 @@
 
 <div ng-controller="aboutUsController">
 	Debug? <input type="checkbox" ng-model="debug"><br/>
-	<form onsubmit="return false;">
+	<form onsubmit="return false;" ng-model-options="{ updateOn: 'blur'}">
 		<h2>Company Registration</h2>
 		Company Name: <input ng-model="companyName"/><br/>
 		Street Address: <input ng-model="address"/><br/>
@@ -80,10 +80,14 @@
 	</table>
 
 	<section>
-		<img ng-attr-src="https://maps.googleapis.com/maps/api/staticmap?markers={{::address}} {{::city}} {{::state }} {{::postalCode}}&size=600x600&maptype=hybrid"/>
+		<!-- This is now more reasonable because we're using the ngModelOptions on the form above -->
+		<img ng-hide="hideMap" ng- ng-attr-src="https://maps.googleapis.com/maps/api/staticmap?markers={{address}} {{city}} {{state }} {{postalCode}}&size=600x600&maptype=hybrid"/>
 		<!--
+			One-Time Expression variant
+			<img ng-hide="hideMap" ng- ng-attr-src="https://maps.googleapis.com/maps/api/staticmap?markers={{::address}} {{::city}} {{::state }} {{::postalCode}}&size=600x600&maptype=hybrid"/>
+
 			We're not using the company object in our code above.
-		<img ng-attr-src="https://maps.googleapis.com/maps/api/staticmap?markers={{company.address}} {{ company.city}} {{ company.state }} {{ company.postalCode}}&size=600x600&maptype=hybrid"/>
+			<img ng-attr-src="https://maps.googleapis.com/maps/api/staticmap?markers={{company.address}} {{ company.city}} {{ company.state }} {{ company.postalCode}}&size=600x600&maptype=hybrid"/>
 		-->
 	</section>
 </div>
