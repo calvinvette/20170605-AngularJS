@@ -64,7 +64,8 @@
     <div class="table">
       <section class="row">
 
-        <section ng-repeat="cat in allCategories" ng-attr-name="!/#{{cat.categoryID}}">
+        <section ng-repeat="cat in allCategories">
+          <a ng-attr-name="!/#{{cat.categoryID}}"></a>
           <h1>{{cat.categoryName}}</h1>
           <p>{{cat.description}}</p>
           <div class="row" ng-repeat="prod in products">
