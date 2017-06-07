@@ -128,17 +128,36 @@
     <section ng-controller="shipAddressController">
         <fieldset>
             <legend>Where shall we ship this?</legend>
-            <form>
+            <form name="frmShipAddress" novalidate="novalidate" ng-submit="console.log('submitted');">
+                <span ng-show="frmShipAddress.$invalid">
+                    Form has errors!
+                </span>
+
                 <div class="form-group has-feedback">
                     <label for="shipName" class="control-label">Company to ship to:</label>
-                    <input ng-model="customer.companyName" name="companyName" class="form-control" maxlength="40" pattern="^[A-Z]+$" required/>
+                    <input ng-model="customer.companyName" name="companyName" class="form-control" ng-minlength="2" ng-maxlength="5" ng-pattern="'[A-Z]'" ng-required="true"/>
                     <span ng-show="frmShipAddress.companyName.$invalid" class="alert-danger">
                         Invalid ship Name
                     </span><br/>
-                 </div>
+                    Invalid? {{frmShipAddress.companyName.$invalid}} Valid? {{frmShipAddress.companyName.$valid}}<br/>
+                    Touched? {{frmShipAddress.companyName.$touched}} UnTouched? {{frmShipAddress.companyName.$untouched}} <br/>
+                    Pristine? {{frmShipAddress.companyName.$pristine}} Dirty? {{frmShipAddress.companyName.$dirty}} <br/>
+                    Required Error? {{frmShipAddress.companyName.$error.required}}<br/>
+                    Pattern Error? {{frmShipAddress.companyName.$error.pattern}}<br/>
+                    Min Length Error? {{frmShipAddress.companyName.$error.minlength}}<br/>
+                    Max Length Error? {{frmShipAddress.companyName.$error.maxlength}}<br/>
+
+                </div>
                 <div class="form-group has-feedback">
                     <label for="shipName" class="control-label">Name to ship to:</label>
                     <input ng-model="customer.contactName" name="shipName" class="form-control" maxlength="40" pattern="^[A-Z]+$" required/>
+                    Invalid? {{frmShipAddress.shipName.$invalid}} Valid? {{frmShipAddress.shipName.$valid}}<br/>
+                    Touched? {{frmShipAddress.shipName.$touched}} UnTouched? {{frmShipAddress.shipName.$untouched}} <br/>
+                    Pristine? {{frmShipAddress.shipName.$pristine}} Dirty? {{frmShipAddress.shipName.$dirty}} <br/>
+                    Required Error? {{frmShipAddress.shipName.$error.required}}<br/>
+                    Pattern Error? {{frmShipAddress.shipName.$error.pattern}}<br/>
+                    Min Length? {{frmShipAddress.shipName.$error.minlength}}<br/>
+                    Max Length? {{frmShipAddress.shipName.$error.maxlength}}<br/>
                 </div>
                 <div class="form-group has-feedback">
                     <label for="address" class="control-label">Address:</label>
