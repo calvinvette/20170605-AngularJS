@@ -59,11 +59,22 @@
     <h1>Browse the Product Catalog</h1>
     <span>Category:</span>
     <select ng-model="category" name="category" id="category" ng-options="cat.categoryName for cat in allCategories">
+      <option value="">All</option>
     </select>
 
     <div class="table">
       <section class="row">
 
+        <!--
+        To only display a section if it matches the selected category above, add:
+         ng-show="cat == category || ! category"
+
+         for this:
+        <section ng-repeat="cat in allCategories" ng-show="cat == category || ! category">
+
+        Without the ng-show clause, they're all visible and selecting a category just jumps to it.
+        <section ng-repeat="cat in allCategories">
+         -->
         <section ng-repeat="cat in allCategories">
           <a ng-attr-name="!/#{{cat.categoryID}}"></a>
           <h1>{{cat.categoryName}}</h1>
