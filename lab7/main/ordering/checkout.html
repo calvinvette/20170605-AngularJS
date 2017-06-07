@@ -67,62 +67,62 @@
     <h1> Check Out</h1>
     <div class="panel panel-default">
         <div class="panel-body">
-            You can change the number of items in your cart below by double-clicking on any item row. To remove a product from your cart altogether hit the
+            You can change the number of items in your cart below by double-clicking on any item row. To remove a
+            product from your cart altogether hit the
             'remove' button
         </div>
     </div>
     <div class="table-responsive">
-        <div class="alert alert-warning" ng-show="cart.length <= 0">There's nothing in your cart. Let's fix that, shall we? Go <a href="/browse">shop</a>!
+        <div class="alert alert-warning" ng-show="cart.length <= 0">There's nothing in your cart. Let's fix that, shall
+            we? Go <a href="/browse">shop</a>!
         </div>
         <table id="cartTable" class="table table-striped table-hover table-condensed" ng-show="cart.length > 0">
-            <table>
-                <thead>
-                <tr>
-                    <th>productID</th>
-                    <th>productName</th>
-                    <th>categoryID</th>
-                    <th>quantityPerUnit</th>
-                    <th>unitsInStock</th>
-                    <th>unitPrice</th>
-                    <th>quantity</th>
-                    <th>Extended Price</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tfoot>
-                <tr>
-                    <td></td>
-                    <td style="text-align: right">Subtotal:</td>
-                    <td></td>
-                    <td></td>
-                    <td style="border-top: 5px">{{cartTotal}}</td>
-                </tr>
-                </tfoot>
+            <thead>
+            <tr>
+                <th>productID</th>
+                <th>productName</th>
+                <th>categoryID</th>
+                <th>quantityPerUnit</th>
+                <th>unitsInStock</th>
+                <th>unitPrice</th>
+                <th>quantity</th>
+                <th>Extended Price</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <td></td>
+                <td style="text-align: right">Subtotal:</td>
+                <td></td>
+                <td></td>
+                <td style="border-top: 5px">{{cartTotal}}</td>
+            </tr>
+            </tfoot>
 
-                <tbody>
-
-                <!-- The ng-dblclick sets an editingRow variable to the current index value -->
-                <tr ng-repeat="cartItem in cart track by $index" ng-dblclick="editingRow = $index">
-                    <td>{{cartItem.product.productID}}</td>
-                    <td>{{cartItem.product.productName}}</td>
-                    <td>{{cartItem.product.categoryID}}</td>
-                    <td>{{cartItem.product.quantityPerUnit}}</td>
-                    <td>{{cartItem.product.unitsInStock}}</td>
-                    <!-- Pipe through the currency filter -->
-                    <td>{{cartItem.product.unitPrice | currency:"USD$ "}}</td>
-                    <!-- If the editingRow value is equal to the current index (set above), we'll show the input, otherwise the expression  -->
-                    <!-- On blur, we'll set the editingRow to -1 (thereby disabling edit mode on any row) and call the stopEditing function which recalculates the cart total.  -->
-                    <td><input ng-model="cartItem.quantity" ng-show="$index == editingRow"
-                               ng-blur="editingRow = -1; stopEditing($index);"/>
-                        <span ng-hide="$index == editingRow">{{cartItem.quantity}}</span>
-                    </td>
-                    <td>{{cartItem.quantity * cartItem.product.unitPrice | currency:"USD$ "}}</td>
-                    <td>
-                        <button ng-click="removeFromCart(cartItem.product)">Remove</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <tbody>
+            <!-- The ng-dblclick sets an editingRow variable to the current index value -->
+            <tr ng-repeat="cartItem in cart track by $index" ng-dblclick="editingRow = $index">
+                <td>{{cartItem.product.productID}}</td>
+                <td>{{cartItem.product.productName}}</td>
+                <td>{{cartItem.product.categoryID}}</td>
+                <td>{{cartItem.product.quantityPerUnit}}</td>
+                <td>{{cartItem.product.unitsInStock}}</td>
+                <!-- Pipe through the currency filter -->
+                <td>{{cartItem.product.unitPrice | currency:"USD$ "}}</td>
+                <!-- If the editingRow value is equal to the current index (set above), we'll show the input, otherwise the expression  -->
+                <!-- On blur, we'll set the editingRow to -1 (thereby disabling edit mode on any row) and call the stopEditing function which recalculates the cart total.  -->
+                <td><input ng-model="cartItem.quantity" ng-show="$index == editingRow"
+                           ng-blur="editingRow = -1; stopEditing($index);"/>
+                    <span ng-hide="$index == editingRow">{{cartItem.quantity}}</span>
+                </td>
+                <td>{{cartItem.quantity * cartItem.product.unitPrice | currency:"USD$ "}}</td>
+                <td>
+                    <button ng-click="removeFromCart(cartItem.product)">Remove</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
     <section ng-controller="shipAddressController">
@@ -131,59 +131,141 @@
             <form name="frmShipAddress" novalidate="novalidate" ng-submit="console.log('submitted');">
                 <span ng-show="frmShipAddress.$invalid">
                     Form has errors!
+                    <div>Debug? <input type="checkbox" ng-model="debug"/></div>
+                    <div ng-show="frmShipAddress.companyName.$error" class="alert-danger">
+                        Any Company Name Error? {{frmShipAddress.companyName.$error}}
+                        <ul>
+                            <li ng-repeat="errObj in frmAddress.companyName.$error">* {{errObj}}</li>
+                        </ul>
+
+
+                    <div ng-show="frmShipAddress.companyName.$error.required" class="alert-danger">
+                        Company Name Required Error? {{frmShipAddress.companyName.$error.required}}
+                    </div>
+                    <div ng-show="frmShipAddress.companyName.$error.pattern" class="alert-danger">
+                        Company Name Pattern Error? {{frmShipAddress.companyName.$error.pattern}}
+                    </div>
+                    <div ng-show="frmShipAddress.companyName.$error.minlength" class="alert-danger">
+                        Company Name Min Length Error? {{frmShipAddress.companyName.$error.minlength}}
+                    </div>
+                    <div ng-show="frmShipAddress.companyName.$error.maxlength" class="alert-danger">
+                        Company Name Max Length Error? {{frmShipAddress.companyName.$error.maxlength}}
+                    </div>
+
+                    </div>
                 </span>
 
                 <div class="form-group has-feedback">
                     <label for="shipName" class="control-label">Company to ship to:</label>
-                    <input ng-model="customer.companyName" name="companyName" class="form-control" ng-minlength="2" ng-maxlength="5" ng-pattern="'[A-Z]'" ng-required="true"/>
-                    <span ng-show="frmShipAddress.companyName.$invalid" class="alert-danger">
-                        Invalid ship Name
-                    </span><br/>
-                    Invalid? {{frmShipAddress.companyName.$invalid}} Valid? {{frmShipAddress.companyName.$valid}}<br/>
-                    Touched? {{frmShipAddress.companyName.$touched}} UnTouched? {{frmShipAddress.companyName.$untouched}} <br/>
-                    Pristine? {{frmShipAddress.companyName.$pristine}} Dirty? {{frmShipAddress.companyName.$dirty}} <br/>
-                    Required Error? {{frmShipAddress.companyName.$error.required}}<br/>
-                    Pattern Error? {{frmShipAddress.companyName.$error.pattern}}<br/>
-                    Min Length Error? {{frmShipAddress.companyName.$error.minlength}}<br/>
-                    Max Length Error? {{frmShipAddress.companyName.$error.maxlength}}<br/>
-
+                    <input ng-model="customer.companyName" name="companyName" class="form-control"
+                           maxlength="40"
+                           ng-minlength="2" ng-maxlength="5" ng-pattern="'[A-Z]*'" ng-required="true"/>
+                    <div ng-show="frmShipAddress.companyName.$invalid" class="alert-danger">
+                        Invalid Company Name
+                    </div>
+                    <div ng-show="frmShipAddress.companyName.$valid" class="alert-success">
+                        Valid Company Name
+                    </div>
+                    <div ng-show="debug">
+                        Invalid? {{frmShipAddress.companyName.$invalid}} Valid?
+                        {{frmShipAddress.companyName.$valid}}<br/>
+                        Touched? {{frmShipAddress.companyName.$touched}} UnTouched?
+                        {{frmShipAddress.companyName.$untouched}} <br/>
+                        Pristine? {{frmShipAddress.companyName.$pristine}} Dirty? {{frmShipAddress.companyName.$dirty}}
+                        <br/>
+                        <div ng-show="frmShipAddress.companyName.$error.required" class="alert-danger">
+                            Required Error? {{frmShipAddress.companyName.$error.required}}
+                        </div>
+                        <div ng-show="frmShipAddress.companyName.$error.pattern" class="alert-danger">
+                            Pattern Error? {{frmShipAddress.companyName.$error.pattern}}
+                        </div>
+                        <div ng-show="frmShipAddress.companyName.$error.minlength" class="alert-danger">
+                            Min Length Error? {{frmShipAddress.companyName.$error.minlength}}
+                        </div>
+                        <div ng-show="frmShipAddress.companyName.$error.maxlength" class="alert-danger">
+                            Max Length Error? {{frmShipAddress.companyName.$error.maxlength}}
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group has-feedback">
                     <label for="shipName" class="control-label">Name to ship to:</label>
-                    <input ng-model="customer.contactName" name="shipName" class="form-control" maxlength="40" pattern="^[A-Z]+$" required/>
-                    Invalid? {{frmShipAddress.shipName.$invalid}} Valid? {{frmShipAddress.shipName.$valid}}<br/>
-                    Touched? {{frmShipAddress.shipName.$touched}} UnTouched? {{frmShipAddress.shipName.$untouched}} <br/>
-                    Pristine? {{frmShipAddress.shipName.$pristine}} Dirty? {{frmShipAddress.shipName.$dirty}} <br/>
-                    Required Error? {{frmShipAddress.shipName.$error.required}}<br/>
-                    Pattern Error? {{frmShipAddress.shipName.$error.pattern}}<br/>
-                    Min Length? {{frmShipAddress.shipName.$error.minlength}}<br/>
-                    Max Length? {{frmShipAddress.shipName.$error.maxlength}}<br/>
+                    <input ng-model="customer.contactName" name="shipName" id="shipName" class="form-control"
+                           maxlength="40" pattern="^[A-Z]+$" required/>
+                    <div ng-show="frmShipAddress.shipName.$invalid" class="alert-danger">
+                        Invalid ship Name
+                    </div>
+                    <div ng-show="frmShipAddress.shipName.$valid" class="alert-success">
+                        Valid ship Name
+                    </div>
+                    <div ng-show="debug">
+                        Invalid? {{frmShipAddress.shipName.$invalid}} Valid? {{frmShipAddress.shipName.$valid}}<br/>
+                        Touched? {{frmShipAddress.shipName.$touched}} UnTouched? {{frmShipAddress.shipName.$untouched}}
+                        <br/>
+                        Pristine? {{frmShipAddress.shipName.$pristine}} Dirty? {{frmShipAddress.shipName.$dirty}} <br/>
+                        Required Error? {{frmShipAddress.shipName.$error.required}}<br/>
+                        Pattern Error? {{frmShipAddress.shipName.$error.pattern}}<br/>
+                        Min Length? {{frmShipAddress.shipName.$error.minlength}}<br/>
+                        Max Length? {{frmShipAddress.shipName.$error.maxlength}}<br/>
+                    </div>
                 </div>
                 <div class="form-group has-feedback">
                     <label for="address" class="control-label">Address:</label>
-                    <input ng-model="customer.address" name="address" class="form-control" maxlength="60" required/>
+                    <input ng-model="customer.address" name="address" id="address" class="form-control" maxlength="60"
+                           required/>
+                    <div ng-show="frmShipAddress.address.$invalid" class="alert-danger">
+                        Invalid address
+                    </div>
+                    <div ng-show="frmShipAddress.address.$valid" class="alert-success">
+                        Valid address
+                    </div>
                 </div>
                 <div class="form-group has-feedback">
                     <label for="city" class="control-label">City:</label>
-                    <input ng-model="customer.city" name="city" class="form-control" maxlength="15" required/>
+                    <input ng-model="customer.city" name="city" id="city" class="form-control" maxlength="15" required/>
+                    <div ng-show="frmShipAddress.city.$invalid" class="alert-danger">
+                        Invalid city
+                    </div>
+                    <div ng-show="frmShipAddress.city.$valid" class="alert-success">
+                        Valid city
+                    </div>
                 </div>
                 <div class="form-group has-feedback">
                     <label for="region" class="control-label">Region/State:</label>
-                    <input ng-model="customer.region" name="region" class="form-control" maxlength="15"/>
+                    <input ng-model="customer.region" name="region" id="region" class="form-control" maxlength="15"/>
+                    <div ng-show="frmShipAddress.region.$invalid" class="alert-danger">
+                        Invalid region
+                    </div>
+                    <div ng-show="frmShipAddress.region.$valid" class="alert-success">
+                        Valid region
+                    </div>
                 </div>
                 <div class="form-group has-feedback">
                     <label for="postalCode" class="control-label">Zip/Postal Code:</label>
-                    <input ng-model="customer.postalCode" name="postalCode" class="form-control" maxlength="10"/>
+                    <input ng-model="customer.postalCode" name="postalCode" id="postalCode" class="form-control"
+                           maxlength="10"/>
+                    <div ng-show="frmShipAddress.postalCode.$invalid" class="alert-danger">
+                        Invalid postalCode
+                    </div>
+                    <div ng-show="frmShipAddress.postalCode.$valid" class="alert-success">
+                        Valid postalCode
+                    </div>
                 </div>
                 <div class="form-group has-feedback">
                     <label for="country" class="control-label">Country:</label>
-                    <input ng-model="customer.country" name="country" class="form-control" maxlength="15"/>
+                    <input ng-model="customer.country" id="country" name="country" class="form-control" maxlength="15"/>
+                    <div ng-show="frmShipAddress.country.$invalid" class="alert-danger">
+                        Invalid country
+                    </div>
+                    <div ng-show="frmShipAddress.country.$valid" class="alert-success">
+                        Valid country
+                    </div>
                 </div>
                 <button ng-enabled="frmShipAddress.$valid" ng-click="alert('foo');">Submit</button>
             </form>
         </fieldset>
-        Ship to: {{ customer }}
-
+        <div ng-show="debug">
+            Ship to: {{ customer }}
+        </div>
     </section>
 
 
@@ -195,7 +277,7 @@
             <legend>How shall we ship it?</legend>
             <div class="form-group">
                 <label for="shipVia" class="control-label">Shipping method:</label>
-                <select class="form-control" ng-model="shipVia"
+                <select class="form-control" ng-model="shipVia" id="shipVia" name="shipVia"
                         ng-options="opt.name + ': ' + opt.price for opt in shipViaOptions"></select>
             </div>
         </fieldset>
