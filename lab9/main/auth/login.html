@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Login</title>
+  <!-- Load node_modules version of jQuery -->
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- Load node_modules version of BootStrap -->
+  <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <!-- Load node_modules version of Angular Core 	-->
+  <script src="../../node_modules/angular/angular.min.js"></script>
+
+  <script type="application/javascript" src="../mainModule.js"></script>
+  <script type="application/javascript" src="authModule.js"></script>
+  <script type="application/javascript" src="loginController.js"></script>
+
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="../assets/css/site.css"/>
+</head>
+<body class="container" ng-app="authModule">
+<main class="row" ng-controller="loginController">
+
+  <h2> Log In </h2>
+
+  <p class="alert alert-info">
+    Please enter your username and password or <a href='register.html'>Register</a> if you don't have an account.
+  </p>
+  <p class="alert alert-danger" ng-show="errorMessage">
+    {{errorMessage}}
+  </p>
+  <p class="alert alert-success" ng-show="successMessage">
+    {{successMessage}}
+  </p>
+
+  <div>
+    <form name="frmLogin">
+      <fieldset>
+        <legend>
+          Account Information
+        </legend>
+        <div class="form-group">
+          <label for="username" class="control-label">Username</label>
+          <input ng-model="user.username" name="username" class="form-control" autocomplete="off"/>
+        </div>
+        <div class="form-group">
+          <label for="password" class="control-label">Password</label>
+          <input ng-model="user.password" type="password" name="password" class="form-control" />
+        </div>
+        <div class="checkbox">
+          <label><input ng-model="user.rememberme" id="rememberMe" type="checkbox" name="rememberMe"/> Keep me logged in</label>
+        </div>
+      </fieldset>
+      <button ng-click="login(user)" class="btn btn-primary">Log In</button>
+    </form>
+  </div>
+
+</main>
+</body>
+</html>
