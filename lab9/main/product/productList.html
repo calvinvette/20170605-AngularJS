@@ -75,18 +75,16 @@
         Without the ng-show clause, they're all visible and selecting a category just jumps to it.
         <section ng-repeat="cat in allCategories">
          -->
-        <section ng-repeat="cat in allCategories">
+        <section ng-repeat="cat in allCategories" ng-show="cat == category || ! category">
           <a ng-attr-name="!/#{{cat.categoryID}}"></a>
           <h1>{{cat.categoryName}}</h1>
           <p>{{cat.description}}</p>
-          <div class="row" ng-repeat="prod in products">
-            <div ng-if="prod.categoryID == cat.categoryID">
+          <div class="row" ng-repeat="prod in products" ng-if="prod.categoryID == cat.categoryID">
               <div class="col-sm-2"><a href="/app/product/productDetail.html">
                 <img class="img-responsive" ng-attr-src="../assets/img/ProductImages/{{prod.productID}}.jpg"></a></div>
               <div class="col-sm-5"><a href="/app/product/productDetail.html">{{prod.productName}}</a></div>
               <div class="col-sm-3">{{prod.quantityPerUnit}}</div>
               <div class="col-sm-2">{{prod.unitPrice | currency:'US$'}}</div>
-            </div>
           </div>
         </section>
       </section>

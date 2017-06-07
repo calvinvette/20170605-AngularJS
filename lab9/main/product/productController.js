@@ -5,7 +5,7 @@
     // controller.$inject = ['$scope', categoryService, productService];
     // function controller ($scope, categoryService, productService) {
     app.controller("productController", function($scope, categoryService, productService, $location) {
-        $scope.allCategories = [];
+        // $scope.allCategories = [];
         $scope.allCategories = categoryService.findAll();
         $scope.products = productService.findAll();
         $scope.$watch('category', function(newCat) {
