@@ -120,7 +120,7 @@ Please send me a chat message when you're done/ready to move on.
 
 
 
-Exercise 10 until the end of the day
+Exercise 10...
 
 Make sure you start the MongoD server
 
@@ -146,8 +146,6 @@ If you're using a separate directory for dev like I was,
 make sure you copy over "app" and the contents of your "node_modules"
 into the northwind folders...
 
-I'll be here until at least 6pm, back at 9:30.
-We'll debrief @10am tomorrow and move on from there.
 
 
 

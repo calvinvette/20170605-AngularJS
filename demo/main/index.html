@@ -13,10 +13,26 @@
 
 	<!-- Load node_modules version of Angular Core 	-->
 	<script src="../node_modules/angular/angular.min.js"></script>
+	<script src="../node_modules/angular-route/angular-route.min.js"></script>
 
 
 	<script type="application/javascript" src="mainModule.js"></script>
-	<script type="application/javascript" src="mainProductContrroller.js"></script>
+	<script type="application/javascript" src="product/productModule.js"></script>
+	<script type="application/javascript" src="ordering/orderingModule.js"></script>
+
+
+	<script type="application/javascript" src="product/categoryService.js"></script>
+	<script type="application/javascript" src="product/productService.js"></script>
+
+	<script type="application/javascript" src="product/productController.js"></script>
+	<script type="application/javascript" src="mainProductController.js"></script>
+	<script type="application/javascript" src="WelcomeController.js"></script>
+	<script type="application/javascript" src="aboutUsController.js"></script>
+
+	<script type="application/javascript" src="ordering/checkoutController.js"></script>
+	<script type="application/javascript" src="ordering/shipViaController.js"></script>
+	<script type="application/javascript" src="ordering/shipAddressController.js"></script>
+
 
 	<style>
 		.first-state {
@@ -36,20 +52,7 @@
 </head>
 <body ng-app="mainModule" >
 
-
-<div ng-controller="mainProductContrroller">
-	<div ng-repeat="product in topProducts" class="item text-center"
-		 ng-class="{'active':$first}">
-		<a ng-attr-href="product/index.html#/{{product.productID}}">
-			<img
-					ng-attr-src="assets/img/productImages/{{product.productID}}.jpg"
-					class="center-block"
-					ng-attr-alt="{{product.productName}}">{{product.productName}}</a>
-	</div>
-</div>
-
-
-
+<div ng-view></div>
 
 </body>
 </html>

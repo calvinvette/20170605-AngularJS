@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "angular": "^1.6.4",
+    "angular-route": "^1.6.4",
     "bootstrap": "^3.3.7",
     "jquery": "^3.2"
   },

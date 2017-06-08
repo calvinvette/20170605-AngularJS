@@ -1,0 +1,143 @@
+
+Quick 10-minute break then start on Lab 11: Capsules
+
+I'll check in on you about 12:30. I'm not going anywhere,
+just going to give you space and time to work. Feel free to
+ask questions at any point.
+
+Please let me know in the chat log when you're done/ready to move on.
+
+I'll post a new solution shortly. (Old solution exists)
+
+
+
+
+
+
+Lunch + finishing Ex 11 + Ex 12 (Templates)
+until 3:45 (or so...)
+(I have an errand to run during lunch, so I won't be available
+until about 2:30. If you have questions in the mean time, please
+post them in the chat log.)
+
+Rest of today:
+Single Page Applications
+
+Tomorrow:
+Routing
+
+Upcoming additional materials (all as time allows)
+Debugging
+Yo/Grunt/Gulp/Bower... WebPack
+Angular 4.x
+JBoss Forge
+Customer Directives
+
+Let me know if you'd prefer a different order or other relevant subjects.
+
+
+REST
+	Consistent URLs - designed by architect
+	Content Negotiation - typically JSON or XML, client-directed
+	All HTTP Verbs (CRUD methods + other meta verbs)
+
+
+# This URL (endpoint) represents all customers
+http://server:80/api/customer
+	# Idempotent retrieve (Read) of all customers
+	GET http://server:80/api/customer
+
+	# Insert a new customer (Create)
+	POST http://server:80/api/customer
+
+	# Update existing customers
+	PUT http://server:80/api/customer
+
+	# Delete all customers
+	DELETE http://server:80/api/customer
+
+# Get Customer with CustomerID=1234, the "Harry Potter" customer record
+GET http://server:80/api/customer/1234
+
+# Insert a customer with ID=1234
+POST http://server:80/api/customer/1234
+
+# Retrieve all customers with a lastname of "Weasley"
+GET http://server:80/api/customer/lastName/Weasley
+
+
+http://server:80/index.html   -> 
+
+http://server/
+	defaultPartial.html in the ng-view stage
+
+http://server/accountSettings	(http://server/index.html#accountSettings)
+	->
+http://server/
+	accountSettingsPartial.html in the stage
+	accountSettingsController.js running it
+		AccountSettingsService.js as an injected dependency
+
+
+http://server/checkout	(http://server/index.html#checkout)
+	->
+http://server/
+	checkoutPartial.html in the stage
+	checkoutController.js running it
+		CheckoutService.js as an injected dependency
+
+
+
+http://server/index.html#!/order/1234
+	Order Partial with a parameter of 1234
+	Which is likely passed to the OrderService to do a lookup
+
+
+
+Continue working up through Lab 13 (Single Page Applications) until 
+at least 11am tomorrow morning...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
