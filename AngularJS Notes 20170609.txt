@@ -48,17 +48,23 @@ npm install -g @angular/cli@1.1.1
 
 JBoss Forge:
 
+JBoss Wildfly:
 http://wildfly.org/downloads/
 
 	Specifically:
 	http://download.jboss.org/wildfly/10.1.0.Final/wildfly-10.1.0.Final.tar.gz
 
-
+JBoss Forge:
 http://forge.jboss.org/download
 
 	http://downloads.jboss.org/forge/releases/3.6.1.Final/forge-distribution-3.6.1.Final-offline.zip
 
-Optional:
+MariaDB:
+http://mariadb.org/download
+	Specifically:
+	http://mirror.jmu.edu/pub/mariadb//mariadb-10.2.6/win32-packages/mariadb-10.2.6-win32.msi
+
+Eclipse (Optional):
 https://www.eclipse.org/downloads
 
 	SpecificallyL
