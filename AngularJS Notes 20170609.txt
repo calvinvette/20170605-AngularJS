@@ -27,6 +27,25 @@ I want to make sure the folks who are putting out fires get the material.
 
 
 
+AngularJS Batarang
+
+
+
+Development Tool Chain for JS should:
+
+Lint-check
+Minify (aka Uglify or Obfuscate), with map generation for debugging
+	JS
+	CSS
+	images (reduce quality, resize, etc)
+Concatenate
+	Vendor-code
+	My code
+	Vendor CSS
+	My CSS
+Package  for deployment
+	Phone, Tablet, PhoneGap, Desktop, etc. deployment packages
+
 
 
 Yeoman: yo/grunt/gulp/bower
@@ -39,6 +58,20 @@ yo
 
 
 
+
+
+yo - new project wizard (generator)
+	Install a generator
+		Either 
+			npm install -g generator-angular
+		Or
+			yo install angular
+
+
+
+
+Lunch until 2:40pm
+
 Angular2+ setup:
 
 npm install -g typescript
@@ -46,7 +79,7 @@ npm install -g @angular/cli@1.1.1
 
 
 
-JBoss Forge:
+JBoss Forge installations:
 
 JBoss Wildfly:
 http://wildfly.org/downloads/
@@ -77,6 +110,8 @@ https://www.eclipse.org/downloads
 
 
 
+
+And Customer Directives
 
 
 
